@@ -38,5 +38,3 @@ https://www.sslshopper.com/article-how-to-create-and-install-an-apache-self-sign
 http://www.akadia.com/services/ssh_test_certificate.html
 https://www.sslshopper.com/apache-server-ssl-installation-instructions.html
 http://www.emreakkas.com/linux-tips/invalid-command-sslengine-enabling-ssl-on-ubuntu-server
-
-
