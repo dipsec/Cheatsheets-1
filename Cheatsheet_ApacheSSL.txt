@@ -1,0 +1,42 @@
+# Enabling Self signed certificates on local website
+    
+1. Install OpenSSL
+
+2. Run the following command to generate the self signed SSL certificates:
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mysitename.key -out mysitename.crt
+
+3. You will be prompted to enter your organizational information and a common name. The common name should be the fully qualified domain name for the site you are securing (www.mydomain.com). You can leave the email address, challenge password, and optional company name blank. When the command is finished running, it will create two files: a mysitename.key file and a mysitename.crt self signed certificate file valid for 365 days.
+
+4. Install the self signed certificate:
+
+Make a backup copy of /etc/apache2/sites-enabled/000-default and open the original in a text editor.
+
+Add the lines in bold below. <VirtualHost 192.168.0.1:443>
+DocumentRoot /var/www/website
+ServerName www.domain.com
+SSLEngine on
+SSLCertificateFile /etc/ssl/certs/primary.crt
+SSLCertificateKeyFile /etc/ssl/certs/private.key
+SSLCertificateChainFile /etc/ssl/certs/intermediate.crt
+</VirtualHost>
+
+Change the names of the files and paths to match your certificate files. Save the changes and exit the text editor.
+
+5. Enable mod_ssl under apache using the following commands:
+
+a2enmod ssl
+/etc/init.d/apache2 restart
+
+## Add ServerName localhost 
+
+to /etc/apache2/apache2.conf
+
+
+More information:
+https://www.sslshopper.com/article-how-to-create-and-install-an-apache-self-signed-certificate.html
+http://www.akadia.com/services/ssh_test_certificate.html
+https://www.sslshopper.com/apache-server-ssl-installation-instructions.html
+http://www.emreakkas.com/linux-tips/invalid-command-sslengine-enabling-ssl-on-ubuntu-server
+
+
