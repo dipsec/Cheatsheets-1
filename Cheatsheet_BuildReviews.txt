@@ -118,3 +118,6 @@ arp -e
 cat ~/.bash_history
 cat ~/.ssh/authorized_keys
 mount
+
+- Check installed applications
+- Check installed compilers/interpreters
