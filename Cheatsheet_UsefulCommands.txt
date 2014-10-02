@@ -8,3 +8,7 @@ cat SSL_Hosts.txt | sed -r 's/\ttcp\t/:/g'
 [+] Port forwarding using NCAT
 
 ncat -lvkp 12345 -c "ncat --ssl 192.168.0.1 443"
+
+[+] Windows 7 or later, build port relay
+
+C:\> netsh interface portproxy add v4tov4 listenport=<LPORT> listenaddress=0.0.0.0 connectport=<RPORT> connectionaddress=<RHOST>
