@@ -1,0 +1,16 @@
+Configure an Ethernet interface as a VLAN trunk
+---------------------------------------------------
+
+Suppose that a host requires access to two VLANs, both carried by a trunk connected to physical interface eth0. The assigned IP addresses for the host are 192.168.2.1/24 on VLAN 2 and 192.168.3.1/24 on VLAN 3.
+
+[+] First install the vlan package if it is not already present:
+
+apt-get install vlan
+
+[+] Configuring interfaces
+
+vconfig add eth0 <VLAN ID>
+ifconfig eth0.<VLAN ID> <IP Address>/24 up
+ifconfig eth0.<VLAN ID>
+
+Note: If any issues run, ifconfig eth0 0.0.0.0 up
