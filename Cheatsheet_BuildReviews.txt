@@ -97,6 +97,14 @@ remote scan (nessus, nmap)
 SYSVOL GPO preference item, check for obscured passwords in xml
 http://blogs.technet.com/b/grouppolicy/archive/2008/08/04/passwords-in-group-policy-preferences.aspx
 
+The history file is readable by any authenticated user, as shown below:
+
+C:\Users\All Users\Microsoft\Group Policy\History\{A1C0C41B-D2F8-401B-A5D1-437DA197A809}\Machine\Preferences\Groups\Groups.xml
+
+The same Group Policy Preference XML configuration file is also accessible via the following UNC path on the Domain Controller, again by any authenticated user:
+
+\\Domain_Controller\sysvol\Domain_Name\Policies\{A1C0C41B-D2F8-401B-A5D1-437DA197A809}\Machine\Preferences\Groups\Groups.xml
+
 
 
 Unix Based Hosts:
