@@ -1,0 +1,10 @@
+[+] Weak SSH Ciphers
+
+sudo nano /etc/ssh/sshd_config
+
+Add the following lines:
+
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,arcfour
+MACs hmac-sha1,hmac-ripemd160
+
+Restart SSH
