@@ -30,6 +30,13 @@ Notes:
 
 [+] Application file type - x.ipa
 
+[+] Easy way:
+
+- Place attacking machine and apple device on wireless network with app installed.
+- Email burps .cer to apple device and install
+- Start burp and disable firewall on listening machine.
+- Change proxy settings on apple device to point to listening burp machine/port.
+
 
 ------------------------------------------ Mobile Application Test Notes (Android)
 
