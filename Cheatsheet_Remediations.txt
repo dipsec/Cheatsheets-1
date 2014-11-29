@@ -13,4 +13,7 @@ Restart SSH
 [+] Unquoted Service Paths 
 
 Run Regedit and browse to HKLM\SYSTEM\CurrentControlSet\services
-Find the service in question and simply at " " either side of the ImagePath string.
+Find the service in question and simply add " " either side of the ImagePath string.
+
+Check permissions:
+C:\Users\user>icacls "C:\Program Files (x86)\Vuln\Vuln Software 7.0\software.exe"
