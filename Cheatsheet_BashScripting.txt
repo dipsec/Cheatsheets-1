@@ -114,3 +114,11 @@ if [ -z $domain ]; then
 	echo
 	exit
 fi
+
+[+] For loops
+#!/bin/bash
+
+for i in $(cat hosts.txt)
+do
+	command $1
+done
