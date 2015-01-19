@@ -118,7 +118,7 @@ fi
 [+] For loops
 #!/bin/bash
 
-for i in $(cat hosts.txt)
+for host in $(cat hosts.txt)
 do
-	command $1
+	command $host
 done
