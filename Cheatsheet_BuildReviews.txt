@@ -24,6 +24,7 @@ Windows Hosts:
 [+] LSA (HKLM - System - Current Control - Control - LSA)
 [+] MSV (HKLM - System - Current Control - Control - LSA - MSV1_0)
 
+systeminfo command
 
 BIOS password
 boot to usb
