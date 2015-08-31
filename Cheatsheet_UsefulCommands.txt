@@ -28,3 +28,7 @@ net rpc shutdown -I ipAddressOfWindowsPC -U username%password
 [+] Conficker Detection with NMAP
 
 nmap -PN -d -p445 --script=smb-check-vulns --script-args=safe=1 IP-RANGES
+
+[+] Determine if a port is open with bash
+
+(: </dev/tcp/127.0.0.1/80) &>/dev/null && echo "OPEN" || echo "CLOSED"
