@@ -1,0 +1,523 @@
+Metasploit 4.5.0-dev.15713 Cheat Sheet
+
+by TerrorByte (huntereight) via cheatography.com/1810/cs/560/
+Database Commands
+Connect
+
+Meterpreter Core and File System
+db_connect
+
+Background the Current
+
+db_disconnect
+
+Session
+
+Export Database
+
+db_export
+
+Kill a Background Meterpreter
+
+Import Scan Result
+
+db_import
+
+Status of Database
+
+db_status
+
+Disconnect
+
+Display Hosts
+
+hosts
+
+Display Loot
+
+loot
+
+Display Notes
+
+notes
+
+Display Services
+Display Vulnerabilities
+
+Meterpreter System Commands
+background
+
+channel
+
+Channels
+Close a Channel
+
+close
+
+Disables Encoding of Unicode
+
+disable_unicode
+
+Strings
+
+_encoding
+
+services
+
+Enable Encoding of Unicode
+
+enable_unicode_
+
+vulns
+
+Strings
+
+encoding
+
+Switch Between Workspaces
+
+workspace
+
+Exit Meterpreter Shell
+
+exit
+
+NMAP Scan into Database
+
+db_nmap
+
+Display Help
+
+help
+
+Display Info About Active Post
+
+info
+
+Display Help
+
+? or help
+
+Interact with a Channel
+
+interact
+
+Go Back
+
+back
+
+Drop into irb Scripting Mode
+
+irb
+
+Change Directory
+
+cd
+
+Load One or More Meterpreter
+
+load
+
+Toggle Color
+
+color
+
+Communicate with a Host
+
+connect
+
+Exit Metasploit
+
+exit
+
+Display Info of Module
+
+info
+
+Sessions
+
+Go into irb
+
+irb
+
+Reads Data from a Channel
+
+read
+
+Display and Manage Jobs
+
+jobs
+
+Run the Commands Stored in a
+
+resource
+
+Stop a Job
+
+kill
+
+File
+
+Load a Plugin
+
+load
+
+Executes a Meterpreter Script
+
+Load a Plugin from Path
+
+loadpath
+
+Print Commands Entered to a Path
+
+makerc
+
+Set Previous Module as Current Module
+
+previous
+
+Pops the Latest Module Off of the Module
+
+popm
+
+Stack and Makes it Active
+Pushes the Active or List of Modules
+
+pushm
+
+onto the Module Stack
+Quit the Console
+
+quit
+
+Run Commands Stored in a File
+
+resource
+
+Route Traffic Through a Connection
+
+route
+
+Save Datastores
+
+save
+
+Search for Modules
+
+search
+
+Dump Session Listings and Display
+
+sessions
+
+Extensions
+Migrate the Server to Another
+
+migrate
+
+Process
+Terminate the Meterpreter
+
+run
+
+or Post Module
+Write Data to a Channel
+
+write
+
+Read the Contents of a File to
+
+cat
+
+cd
+
+Download File to Your
+
+download
+
+Edit a File
+
+edit
+
+Print Local Working Directory
+
+getlwd
+
+Print Working Directory
+
+getwd
+
+Change Local Working Direct
+
+lcd
+
+ory
+
+Print Working Directory
+
+pwd
+
+Delete the Specified File
+
+rm
+
+Modules
+
+Remove Directory
+
+rmdir
+
+Do Nothing for X Seconds
+
+sleep
+
+Search for Files
+
+search
+
+Write All Output to a Files
+
+spool
+
+Upload File to Target
+
+upload
+
+Manipulate Threads
+
+threads
+
+Unload a Plugin
+
+unload
+
+Unset a Variable
+
+unset
+
+Unset a Global Variable
+
+unsetg
+
+Use a Module (by Name)
+
+use
+
+Show Metasploit Info
+
+version
+
+show
+
+Meterpreter User Interface Commands
+List All Accessible Desktops and
+
+enumde
+
+Window Stations
+
+sktops
+
+Get the Current Meterpreter Desktop
+
+getdesktop
+
+Display the Amount of Time the User
+
+idletime
+
+has been Idle
+
+getprivs
+
+Get the User that the Server is
+
+getuid
+
+Running as
+Terminate a Process
+
+kill
+
+List Running Processes
+
+ps
+
+Reboots the Remote Computer
+
+reboot
+
+Interact with the Remote Registry
+
+reg
+
+Calls RevertToSelf() on the Remote
+
+rev2self
+
+Machine
+Drop into a System Command Shell
+
+shell
+
+Shuts Down the Remote Computer
+
+shutdown
+
+Attempt to Steal an Impersonation
+
+steal_
+
+Token from the Process
+
+token
+
+Gets Information About the Remote
+
+sysinfo
+
+List Webcams
+
+webcam
+_list
+
+Take a Snapshot from the Specified
+
+webcam
+
+Webcam
+
+_snap
+
+Attempt to Elevate your Priviledge to
+
+getsystem
+
+Manipulate MACE Attributes
+
+Computer
+
+mkdir
+
+Display Modules of a Type, or All
+
+getpid
+
+Attempt to Enable All Privileges
+
+Dumps the Contents of the SAM
+
+Change Directory
+
+ls
+
+setg
+
+Get the Current Process Identifier
+
+hashdump
+
+Database
+
+Make Directory
+
+Set a Global Variable
+
+execute
+
+that of Local System
+
+the Screen
+
+List Files
+
+set
+
+Execute a Command
+
+Meterpreter Priv Commands
+
+lpwd
+
+Set Variable of a Module
+
+drop_token
+
+System
+
+quit
+
+Print Local Working Directory
+
+Information about Sessions
+
+Relinquishes Any Active Impers
+
+Available to the Current Process
+
+Module
+
+Core Commands
+
+clearev
+
+onation Token
+
+bgkill
+
+Script
+Displays Info About Active
+
+Clear the Event Log
+
+timestomp
+
+Start Capturing Keystrokes
+
+keysca
+n_start
+
+Stop Capturing Keystrokes
+
+keysca
+n_stop
+
+Dump the Keystroke Buffer
+
+keysca
+n_dump
+
+Screenshot of the GUI
+
+screenshot
+
+Change the Meterpreters Current
+
+setdesktop
+
+Desktop
+Control Some of the User Interface
+
+uictl
+
+Components
+Cheatographer
+
+Cheat Sheet
+
+Sponsor
+
+TerrorByte (huntereight)
+
+This cheat sheet was published on 5th September,
+
+FeedbackFair, increase your conversion rate today!
+
+cheatography.com/huntereight/
+
+2012 and was last updated on 5th September, 2012.
+
+Try it free!
+http://www.FeedbackFair.com
+
+
